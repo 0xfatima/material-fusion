@@ -1,95 +1,95 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import React from 'react'
+import Image from 'next/image';
+import { Box, Typography,Button } from '@mui/material'
+import CustomCard from './component/Card';
+import InsightsIcon from '@mui/icons-material/Insights';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import BrowserUpdatedIcon from '@mui/icons-material/BrowserUpdated';
 
-export default function Home() {
+import { useRouter } from 'next/navigation';
+
+
+
+const page = () => {
+  
+const router= useRouter();
+ const goToInventory=()=>{
+   router.push('/inventory')
+ }
+
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+ 
+    <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center"  >
+      
+         <Box padding={10}  display="flex"  sx={{height:{xs:"120vh", md:"100vh" },flexDirection:{xs:"column", md:"row"} }}
+         style={{
+          background: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)'
+        }}
+         >
+         <Box sx={{width:{xs:"100%" ,md:"50%"}}} display="flex" 
+         flexDirection="column" justifyContent="center" 
           >
-            By{" "}
+          <Typography sx={{width:{xs:"100%" ,md:"80%"}, }} position='relative' color="#ffff"  >
+            Elevate your inventory management with Material Fusion Inventory. 
+          Our platform provides real-time tracking, advanced analytics, and seamless
+           integration to boost efficiency and simplify operations. Streamline your
+            processes and make informed decisions effortlessly.
+            </Typography>
+            <Button  sx={{position:"relative" ,top:"10%", width:"200px", 
+            variant:{sx:'contained', md:'outlined'}, color:{xs:'white'}, border:{xs:"1px solid white"}}} 
+            onClick={()=>goToInventory()}
+            >Go To Inventory</Button>
+            </Box>
+            <Box sx={{width:{xs:"100%" ,md:"50%"},display:{xs:"none", md:"flex" } }} justifyContent="center" alignItems="center">
+
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+        src="https://www.unleashedsoftware.com/wp-content/uploads/2024/02/Pillar-Page-Hero-Placeholder-1024x758.png.webp" // Corrected image path
+        alt="Descriptive text for screen readers"
+        // style={{maxWidth:"100%", height:"auto"}}
+        width={500}
+        height={400}
+        
+      />
+            </Box>
+
+         </Box>
+
+        <Box display="flex" flexDirection="column" gap={5} 
+        height="80vh" justifyContent="center" alignItems="center">
+          <Typography variant='h3' sx={{color:{xs:"white", md:"text.secondary"}}}>Features</Typography>
+        <Box display="flex" sx={{flexDirection:{xs:"column", md:"row" }, gap:{xs:2,md:5}}}   justifyContent="center" alignItems="center">
+            <CustomCard imgSrc={<AccessTimeFilledIcon/>} 
+            title="Real-Time Tracking"
+            description="Get instant updates on stock levels to prevent shortages and overstocking.
+             Always access precise inventory data to make well-informed decisions."
             />
-          </a>
-        </div>
-      </div>
+            <CustomCard imgSrc={<InsightsIcon/>}
+            title="Advanced Analytics"
+            description="Utilize advanced analytics to track performance and trends.
+             Custom reports and dashboards empower you to make informed decisions
+              and optimize your inventory.
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+"
+            />
+            <CustomCard imgSrc={<BrowserUpdatedIcon/>}
+            title="Effortless Updates"
+            description="Easily update inventory data and configurations in real-time. 
+            Maintain accuracy and efficiency with minimal effort, ensuring your system stays current."
+            />
+        </Box>
+        </Box>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+     
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+    </Box>
+    </>
+  )
 }
+
+export default page
