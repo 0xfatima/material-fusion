@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 
 
 
-const page = () => {
+const Page = () => {
   
 const router= useRouter();
  const goToInventory=()=>{
@@ -92,4 +92,4 @@ const router= useRouter();
   )
 }
 
-export default page
+export default Page
