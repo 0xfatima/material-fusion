@@ -29,7 +29,7 @@ const CameraComponent = () => {
 
   const handleAddToInventory = () => {
     if (tagName && !itemAdded) {
-
+      
       setItemAdded(true);
   
         router.push(`/inventory?page=addItem&name=${encodeURIComponent(tagName)}`);
