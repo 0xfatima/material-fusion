@@ -1,4 +1,4 @@
-// "use client"
+"use client";
 // import { HfInference } from "@huggingface/inference";
 // import React, { useEffect, useState } from 'react'
 // const inference = new HfInference("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");
